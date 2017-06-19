@@ -1,10 +1,13 @@
 FROM debian:9
 
-LABEL maintainer="Stig Sandbeck Mathisen" \
-      version="0.1.0" \
-      io.k8s.description="Open source metric analytics & visualisation suite" \
-      io.k8s.display-name="Visualisation" \
-      description="Grafana is an open source metric analytics and visualisation suite. It is most commonly used for visualising time series data for infrastructure and application analytics but many use it in other domains including industrial sensors, home automation, weather, and process control"
+LABEL no.fnord.maintainer="Stig Sandbeck Mathisen <ssm@fnord.no>" \
+      no.fnord.version="0.1.1" \
+      io.openshift.tags="graphing,visualisation,metrics" \
+      io.openshift.description="Grafana is an open source metric analytics and visualisation suite. It is most commonly used for visualising time series data for infrastructure and application analytics but many use it in other domains including industrial sensors, home automation, weather, and process control" \
+      io.openshift.non-scalable="true" \
+      io.openshift.expose-services="3000:http" \
+      io.openshift.min-memory="20Mi" \
+      io.openshift.min-cpu="4"
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
