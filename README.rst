@@ -15,11 +15,15 @@ Usage
    oc project my-project
    oc new-app https://github.com/ssm/grafana-openshift.git --name grafana
 
-* Add a persistent volume, mount inside the container at /var/lib/grafana
+* Add a persistent volume, mount inside the container at ``/var/lib/grafana``.
+  If you want persistent logging as well, do the same for ``/var/log/grafana``
+  and update the configuration.
 
 * Add a config map containing the files "grafana.ini" and "ldap.toml",
   mount it at /etc/grafana. You can find example configuration files
   at https://github.com/grafana/grafana/tree/master/conf
+
+* Add a service and a route
 
 * Add health checks
 
