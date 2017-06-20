@@ -20,3 +20,30 @@ Usage
 * Add a config map containing the files "grafana.ini" and "ldap.toml",
   mount it at /etc/grafana. You can find example configuration files
   at https://github.com/grafana/grafana/tree/master/conf
+
+* Add health checks
+
+  The path /api/health can be used to check for liveness and
+  readiness.
+
+.. code-block:: yaml
+
+   livenessProbe:
+     failureThreshold: 3
+     httpGet:
+       path: /api/health
+       port: 3000
+       scheme: HTTP
+     periodSeconds: 10
+     successThreshold: 1
+     timeoutSeconds: 1
+
+   readinessProbe:
+     failureThreshold: 3
+     httpGet:
+       path: /api/health
+       port: 3000
+       scheme: HTTP
+     periodSeconds: 10
+     successThreshold: 1
+     timeoutSeconds: 1
