@@ -31,7 +31,7 @@ RUN echo 'deb https://packagecloud.io/grafana/stable/debian/ jessie main' \
 EXPOSE 3000
 VOLUME /etc/grafana /var/lib/grafana /var/log/grafana
 
-USER 1000
+USER grafana:grafana
 WORKDIR /usr/share/grafana
 CMD /usr/sbin/grafana-server \
     --config=/etc/grafana/grafana.ini \
